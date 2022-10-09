@@ -81,7 +81,7 @@ export default function Sidebar() {
             <QRCode
               class="my-4 self-center"
               size={256}
-              value={`https://autoqrmenu.netlify.app//menu/${userId}`}
+              value={`https://autoqrmenu.netlify.app/menu/${userId}`}
             />
             <button
               onClick={(e) => handleLogout(e)}
