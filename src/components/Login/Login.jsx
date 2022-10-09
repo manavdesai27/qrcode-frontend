@@ -10,7 +10,7 @@ const Login = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post(`http://localhost:5000/api/auth/signin`, { phone })
+      .post(`${process.env.REACT_APP_BACKEND}/api/auth/signin`, { phone })
       .then((res) => {
         console.log(res);
         navigate("/auth/login/verify", {
@@ -18,7 +18,8 @@ const Login = (props) => {
             phone: phone,
           },
         });
-      }).catch( e => {
+      })
+      .catch((e) => {
         console.log(e);
       });
   };

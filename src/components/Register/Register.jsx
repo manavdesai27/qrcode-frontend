@@ -14,7 +14,7 @@ const Register = (props) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     await axios
-      .post("http://localhost:5000/api/auth/signup", {
+      .post(`${process.env.REACT_APP_BACKEND}/api/auth/signup`, {
         name,
         phone,
         restaurant,
@@ -28,10 +28,11 @@ const Register = (props) => {
         // });
         navigate("/auth/register/verify", {
           state: {
-            phone: phone
-          }
-        })
-      }).catch((err) => {
+            phone: phone,
+          },
+        });
+      })
+      .catch((err) => {
         console.log(err);
       });
   };

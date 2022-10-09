@@ -16,7 +16,7 @@ const Menu = (props) => {
   useEffect(() => {
     const fetchProducts = async () => {
       await axios
-        .get(`http://localhost:5000/api/menu/${id}`)
+        .get(`${process.env.REACT_APP_BACKEND}/api/menu/${id}`)
         .then((res) => {
           setRestaurant(res.data.restaurant);
           // setProducts(res.data.products);

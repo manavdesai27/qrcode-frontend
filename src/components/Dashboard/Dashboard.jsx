@@ -16,10 +16,10 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       await axios
-        .get(`http://localhost:5000/api/menu/${userId}`, {
+        .get(`${process.env.REACT_APP_BACKEND}/api/menu/${userId}`, {
           headers: {
-            'user-auth-token': token
-          }
+            "user-auth-token": token,
+          },
         })
         .then((res) => {
           setRestaurant(res.data.restaurant);
@@ -45,10 +45,10 @@ const Dashboard = () => {
 
   const handleDelete = async (id) => {
     await axios
-      .delete(`http://localhost:5000/api/user/delete/${id}`, {
+      .delete(`${process.env.REACT_APP_BACKEND}/api/user/delete/${id}`, {
         headers: {
-          "user-auth-token": token
-        }
+          "user-auth-token": token,
+        },
       })
       .then((res) => {
         console.log(res);

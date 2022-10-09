@@ -14,7 +14,7 @@ export default function RegisterOTP(props) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     await axios
-      .post("http://localhost:5000/api/auth/signup/verify", {
+      .post(`${process.env.REACT_APP_BACKEND}/api/auth/signup/verify`, {
         otp,
         phone,
       })

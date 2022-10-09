@@ -12,7 +12,7 @@ export default function AddItem({ userId, setShowModal }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     await axios
-      .post("http://localhost:5000/api/user/add", {
+      .post(`${process.env.REACT_APP_BACKEND}/api/user/add`, {
         headers: {
           "user-auth-token": token,
         },

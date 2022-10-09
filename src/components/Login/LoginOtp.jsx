@@ -13,13 +13,17 @@ const LoginOtp = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post(`http://localhost:5000/api/auth/signin/verify`, { phone, otp })
+      .post(`${process.env.REACT_APP_BACKEND}/api/auth/signin/verify`, {
+        phone,
+        otp,
+      })
       .then((res) => {
         console.log(res);
         // props.history.push("/dashboard");
         sessionStorage.setItem("token", res.data.token);
-        navigate("/dashboard")
-      }).catch(e => {
+        navigate("/dashboard");
+      })
+      .catch((e) => {
         console.log(e);
       });
   };
