@@ -12,15 +12,20 @@ export default function AddItem({ userId, setShowModal }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     await axios
-      .post(`${process.env.REACT_APP_BACKEND}/api/user/add`, {
-        headers: {
-          "user-auth-token": token,
+      .post(
+        `${process.env.REACT_APP_BACKEND}/api/user/add`,
+        {
+          pName: Name,
+          pPrice: Price,
+          category: Category,
+          userId,
         },
-        pName: Name,
-        pPrice: Price,
-        category: Category,
-        userId,
-      })
+        {
+          headers: {
+            "user-auth-token": token,
+          }
+        }
+      )
       .then((res) => {
         console.log(res);
         setShowModal(false);
