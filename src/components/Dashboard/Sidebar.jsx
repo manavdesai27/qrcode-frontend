@@ -78,8 +78,15 @@ export default function Sidebar() {
             </ul>
           </div>
           <div>
-            <QRCode class="my-4 self-center" size={256} value={`http://lcoalhost:3000/menu/${userId}`} />
-            <button onClick={e => handleLogout(e)} class="px-8 py-4 border-t border-gray-700">
+            <QRCode
+              class="my-4 self-center"
+              size={256}
+              value={`https://autoqrmenu.netlify.app//menu/${userId}`}
+            />
+            <button
+              onClick={(e) => handleLogout(e)}
+              class="px-8 py-4 border-t border-gray-700"
+            >
               <div className="text-gray-white text-base text-center">
                 Logout
               </div>
